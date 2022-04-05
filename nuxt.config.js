@@ -39,5 +39,12 @@ export default {
   server: {
     // process.env.NODE_ENV : nuxt.js 내부에서 제공되는 환경변수
     port: process.env.NODE_ENV === 'production' ? null : 5000,
+  },
+
+  // env config
+  env: {
+    baseURL: process.env.NODE_ENV === 'production' 
+    ? 'https://my-json-server.typicode.com/TonyJev93/nuxt-sample-api' 
+    : 'http://localhost:3000'
   }
 }
