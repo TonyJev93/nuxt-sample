@@ -44,12 +44,12 @@ export default {
           {
             hid: 'og:description',
             property: 'og:description',
-            content: `상품 상세 정보를 확인해보세요.`
+            content: `${this.product.name} 상품의 상세 정보를 확인해보세요.`
           },
           {
             hid: 'og:image',
             property: 'og:image',
-            content: `${this.product.imageUrl}`
+            content: `${this.product.imageUrl}?random=${Math.random()}`
           },
         ],
       }
