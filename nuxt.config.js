@@ -37,6 +37,7 @@ export default {
 
   // server setup
   server: {
-    port: 5000,
+    // process.env.NODE_ENV : nuxt.js 내부에서 제공되는 환경변수
+    port: process.env.NODE_ENV === 'production' ? null : 5000,
   }
 }
