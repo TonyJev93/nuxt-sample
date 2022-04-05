@@ -1,9 +1,84 @@
 <template>
-  <Tutorial />
+  <div class="app">
+    <main>
+      <!-- <search-input :search-keyword='searchKeyword' @input="updateSearchKeyword" /> -->
+      <search-input v-model="searchKeyword" />
+      <ul>
+        <li class="item flex" v-for="product in products" :key="product.id" @click="moveToDetailPage(product.id)">
+          <img class="product-image" :src="product.imageUrl" :alt="product.name" />
+          <p>{{ product.name}}</p>
+          <span>{{ product.price}}</span>
+        </li>
+      </ul>
+    </main>
+  </div>
 </template>
 
 <script>
+import axios from 'axios';
+import SearchInput from '@/components/SearchInput.vue'; // ~ 는 webpack 관련 resolve 옵션 속성 ( @ 해도 됨 )
+
 export default {
-  name: 'IndexPage',
+  components: { SearchInput },
+  name: 'MainPage',
+  async asyncData() {
+    const response = await axios.get('http://localhost:3000/products')
+    console.log(response)
+    const products = response.data.map(item => ({
+      ...item, // json 을 덮어 쓰는 효과
+      imageUrl: `${item.imageUrl}?random=${Math.random()}`
+    }))
+    return { products }
+  },
+  data() {
+    return {
+      searchKeyword: ''
+    }
+  },
+  methods: {
+    moveToDetailPage(id) {
+      console.log(id)
+      this.$router.push(`detail/${id}`);
+    },
+    updateSearchKeyword(keyword) {
+      this.searchKeyword = keyword
+    }
+  }
+  
 }
 </script>
+
+
+<style scoped>
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.item {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+.product-image {
+  width: 400px;
+  height: 250px;
+}
+.app {
+  position: relative;
+}
+.cart-wrapper {
+  position: sticky;
+  float: right;
+  bottom: 50px;
+  right: 50px;
+}
+.cart-wrapper .btn {
+  display: inline-block;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+</style>
