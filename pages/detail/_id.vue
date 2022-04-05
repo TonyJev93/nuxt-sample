@@ -36,6 +36,21 @@ export default {
             name: 'description',
             content: `이 상품은 ${this.product.name}입니다.`
           },
+          {
+            hid: 'og:title',
+            name: 'og:title',
+            content: `상품 상세 페이지`
+          },
+          {
+            hid: 'og:description',
+            name: 'og:description',
+            content: `상품 상세 정보를 확인해보세요.`
+          },
+          {
+            hid: 'og:image',
+            name: 'og:image',
+            content: `${this.product.imageUrl}`
+          },
         ],
       }
     },
