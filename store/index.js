@@ -26,8 +26,20 @@ export const mutations = {
 export const actions = {
     // [FETCH_CART_ITEMS] : ES6 문법, 동적 키값 정의 방식
     async [FETCH_CART_ITEMS]({ commit }) {
-        const response = await fetchCartItmes();
-        console.log(response)
-        commit('setCartItems', response.data)
-    }
+        const { data } = await fetchCartItmes();
+        commit('setCartItems', data.map(item => ({
+            ...item, // json 을 덮어 쓰는 효과
+            imageUrl: `${item.imageUrl}?random=${Math.random()}`
+        })))
+    },
+    // 별도 호출 없이 자동으로 nuxt 앱이 실행되면서 호출 됨.
+    // 구현체를 직접 넣기보다는 action 을 나누어 넣는 방식을 추천.
+    // async nuxtServerInit(storeContext, nuxtContext) {
+        // await storeContext.dispatch(FETCH_CART_ITEMS)
+        // const { data } = await fetchCartItmes();
+        // storeContext.commit('setCartItems', data.map(item => ({
+        //     ...item, // json 을 덮어 쓰는 효과
+        //     imageUrl: `${item.imageUrl}?random=${Math.random()}`
+        // })))
+    // }
 }
