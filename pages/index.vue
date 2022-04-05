@@ -18,15 +18,15 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import SearchInput from '@/components/SearchInput.vue'; // ~ 는 webpack 관련 resolve 옵션 속성 ( @ 해도 됨 )
-import { fetchProductsByKeyword } from '~/api';
+import { fetchProductsByKeyword, fetchProduct } from '@/api';
 
 export default {
   components: { SearchInput },
   name: 'MainPage',
   async asyncData() {
-    const response = await axios.get('http://localhost:3000/products')
+    const response = await fetchProduct()
     console.log(response)
     const products = response.data.map(item => ({
       ...item, // json 을 덮어 쓰는 효과
