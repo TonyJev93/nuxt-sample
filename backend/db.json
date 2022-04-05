@@ -193,6 +193,42 @@
       "name": "Awesome Concrete Shirt",
       "price": "165.00",
       "imageUrl": "http://placeimg.com/640/480/fashion"
+    },
+    {
+      "id": 9,
+      "name": "Handcrafted Plastic Computer",
+      "price": "289.00",
+      "imageUrl": "http://placeimg.com/640/480/fashion"
+    },
+    {
+      "id": 10,
+      "name": "Small Fresh Soap",
+      "price": "777.00",
+      "imageUrl": "http://placeimg.com/640/480/fashion"
+    },
+    {
+      "id": 6,
+      "name": "Handmade Granite Mouse",
+      "price": "591.00",
+      "imageUrl": "http://placeimg.com/640/480/fashion"
+    },
+    {
+      "id": 3,
+      "name": "Practical Metal Gloves",
+      "price": "702.00",
+      "imageUrl": "http://placeimg.com/640/480/fashion"
+    },
+    {
+      "id": 26,
+      "name": "Incredible Frozen Gloves",
+      "price": "172.00",
+      "imageUrl": "http://placeimg.com/640/480/fashion"
+    },
+    {
+      "id": 27,
+      "name": "Refined Fresh Chicken",
+      "price": "209.00",
+      "imageUrl": "http://placeimg.com/640/480/fashion"
     }
   ]
 }
