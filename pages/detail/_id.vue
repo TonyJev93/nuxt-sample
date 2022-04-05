@@ -26,6 +26,12 @@ export default {
         const product = response.data
         return {product}
     },
+    methods: {
+      addToCart() {
+        this.$store.commit('addCartItem', this.product);
+        this.$router.push('/cart')
+      }
+    }
 }
 </script>
 
