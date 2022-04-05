@@ -38,17 +38,17 @@ export default {
           },
           {
             hid: 'og:title',
-            name: 'og:title',
+            property: 'og:title',
             content: `상품 상세 페이지`
           },
           {
             hid: 'og:description',
-            name: 'og:description',
+            property: 'og:description',
             content: `상품 상세 정보를 확인해보세요.`
           },
           {
             hid: 'og:image',
-            name: 'og:image',
+            property: 'og:image',
             content: `${this.product.imageUrl}`
           },
         ],
